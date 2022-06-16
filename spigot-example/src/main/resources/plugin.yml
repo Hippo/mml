@@ -1,0 +1,7 @@
+name: MMLExample
+main: rip.hippo.example.mml.spigot.MMLExamplePlugin
+version: 1.0.0
+author: Hippo
+commands:
+  mmlexample:
+    description: The MML example command

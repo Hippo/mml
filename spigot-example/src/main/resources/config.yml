@@ -1,0 +1,7 @@
+title: "&cMy Menu"
+allow-dragging: false
+allow-under-inventory-interact: true
+contents:
+  - "x 14 1 4 13 3 2 10 x"
+  - "14 1 foo 4 bar 3 baz 2 10"
+  - "x 14 1 4 13 3 2 10 x"
