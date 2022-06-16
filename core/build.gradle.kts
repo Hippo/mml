@@ -3,9 +3,6 @@ plugins {
     id("com.github.johnrengelman.shadow").version("7.1.0")
 }
 
-group = "rip.hippo"
-version = "1.0.0"
-
 repositories {
     mavenCentral()
 }

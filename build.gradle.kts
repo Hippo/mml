@@ -4,8 +4,10 @@ plugins {
     id("maven-publish")
 }
 
-group = "rip.hippo"
-version = "1.0.0"
+allprojects {
+    group = "rip.hippo.mml"
+    version = "1.0.1"
+}
 
 repositories {
     mavenCentral()
@@ -18,6 +20,9 @@ subprojects {
     publishing {
         publications {
             create<MavenPublication>("maven") {
+                groupId = project.group.toString()
+                artifactId = project.name
+                version = project.version.toString()
                 from(components["java"])
             }
         }
