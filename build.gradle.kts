@@ -4,10 +4,8 @@ plugins {
     id("maven-publish")
 }
 
-allprojects {
-    group = "rip.hippo.mml"
-    version = "1.0.4"
-}
+group = "rip.hippo.mml"
+version = "1.0.5"
 
 repositories {
     mavenCentral()
@@ -16,16 +14,12 @@ repositories {
 dependencies {
 }
 
-subprojects {
-    val sub = this
-    publishing {
-        publications {
-            create<MavenPublication>("maven") {
-                groupId = sub.group.toString()
-                artifactId = sub.name
-                version = sub.version.toString()
-                from(components["java"])
-            }
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = project.group.toString()
+            from(components["java"])
         }
     }
 }

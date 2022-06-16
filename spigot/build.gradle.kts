@@ -4,6 +4,9 @@ plugins {
     id("maven-publish")
 }
 
+group = "rip.hippo.mml"
+version = "1.0.5"
+
 repositories {
     mavenCentral()
     maven("https://hub.spigotmc.org/nexus/content/repositories/snapshots/")
@@ -13,4 +16,13 @@ repositories {
 dependencies {
     implementation("org.spigotmc:spigot-api:1.8-R0.1-SNAPSHOT")
     implementation(project(":core"))
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = project.group.toString()
+            from(components["java"])
+        }
+    }
 }

@@ -6,6 +6,9 @@ plugins {
     id("maven-publish")
 }
 
+group = "rip.hippo.mml"
+version = "1.0.5"
+
 repositories {
     mavenCentral()
     maven("https://hub.spigotmc.org/nexus/content/repositories/snapshots/")
@@ -26,4 +29,13 @@ tasks.getByName<ShadowJar>("shadowJar") {
     }
     relocate("rip.hippo.mml",
         "rip.hippo.example.mml.spigot.libs.rip.hippo.mml")
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = project.group.toString()
+            from(components["java"])
+        }
+    }
 }
