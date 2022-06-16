@@ -1,6 +1,22 @@
 # MML
 Minecraft Menu Library, making Minecraft menus without a hassle.
 
+
+# Adding MML to your project
+
+```kotlin
+repositories {
+    maven("https://jitpack.io")
+}
+
+dependencies {
+    implementation("rip.hippo.mml:core:1.0.5")
+    
+    // add if spigot plugin
+    implementation("rip.hippo.mml:spigot:1.0.5")
+}
+```
+
 # Introduction
 MML is a library which takes a better approach to making menus in Minecraft.
 
