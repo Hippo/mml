@@ -6,7 +6,7 @@ plugins {
 
 allprojects {
     group = "rip.hippo.mml"
-    version = "1.0.2"
+    version = "1.0.3"
 }
 
 repositories {
@@ -17,12 +17,13 @@ dependencies {
 }
 
 subprojects {
+    val sub = this
     publishing {
         publications {
             create<MavenPublication>("maven") {
-                groupId = project.group.toString()
-                artifactId = project.name
-                version = project.version.toString()
+                groupId = sub.group.toString()
+                artifactId = sub.name
+                version = sub.version.toString()
                 from(components["java"])
             }
         }
