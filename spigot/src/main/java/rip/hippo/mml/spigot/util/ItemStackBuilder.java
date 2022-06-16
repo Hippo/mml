@@ -2,11 +2,14 @@ package rip.hippo.mml.spigot.util;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 /**
  * @author Hippo
@@ -67,11 +70,42 @@ public final class ItemStackBuilder {
     itemStack.setDurability(damage);
 
     if (itemMeta != null) {
-      itemMeta.setDisplayName(name);
-      itemMeta.setLore(lore);
+      if (name != null) {
+        itemMeta.setDisplayName(name);
+      }
+      if (!lore.isEmpty()) {
+        itemMeta.setLore(lore);
+      }
       itemStack.setItemMeta(itemMeta);
     }
 
     return itemStack;
+  }
+
+  public static ItemStackBuilder of(ConfigurationSection configurationSection, boolean translateColorCodes) {
+    String name = configurationSection.getString("name");
+    Material material = Material.valueOf(Objects.requireNonNull(configurationSection.getString("material")));
+    List<String> lore = configurationSection.getStringList("lore");
+    int damage = configurationSection.getInt("damage", -1);
+    int amount = configurationSection.getInt("amount", 1);
+
+    ItemStackBuilder itemStackBuilder = new ItemStackBuilder(translateColorCodes)
+        .material(material)
+        .addLores(lore)
+        .amount(amount);
+
+    if (name != null) {
+      itemStackBuilder.name(name);
+    }
+
+    if (damage != -1) {
+      itemStackBuilder.damage(damage);
+    }
+
+    return itemStackBuilder;
+  }
+
+  public static ItemStackBuilder of(ConfigurationSection configurationSection) {
+    return of(configurationSection, true);
   }
 }

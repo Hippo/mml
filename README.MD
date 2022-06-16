@@ -10,10 +10,10 @@ repositories {
 }
 
 dependencies {
-    implementation("rip.hippo.mml:core:1.0.5")
+    implementation("rip.hippo.mml:core:1.0.6")
     
     // add if spigot plugin
-    implementation("rip.hippo.mml:spigot:1.0.5")
+    implementation("rip.hippo.mml:spigot:1.0.6")
 }
 ```
 
@@ -120,6 +120,25 @@ ItemStack itemStack = new ItemStackBuilder()
     .addLoreLine("&7Lore line here")
     .damage(14)
     .build();
+```
+
+It can also load from a `ConfigurationSection` as such.
+
+```yaml
+# The only thing required is the material attribute
+my-item:
+  name: "&cMy Item"
+  material: WOOL
+  amount: 5
+  damage: 14
+  lore:
+    - "&7Lore line 1"
+    - "&dSecond line"
+```
+
+Load at like this.
+```java
+ItemStackBuilder itemStackBuilder = ItemStackBuilder.of(configurationSection);
 ```
 
 Check out `spigot-example` for a whole integration.
