@@ -10,10 +10,10 @@ repositories {
 }
 
 dependencies {
-    implementation("rip.hippo.mml:core:1.0.6")
+    implementation("rip.hippo.mml:core:1.0.7")
     
     // add if spigot plugin
-    implementation("rip.hippo.mml:spigot:1.0.6")
+    implementation("rip.hippo.mml:spigot:1.0.7")
 }
 ```
 
@@ -109,6 +109,26 @@ Then the only change we would need to make from before is with our applicator.
 
 ```java
 StandardMenuApplicator<Player> applicator = menuLibrary.getApplicator(Material.STAINED_GLASS_PANE);
+```
+
+
+`MenuData` can be used to easily load menus from a `Configurationsection` as such.
+
+```yaml
+title: "&cMy Menu"
+allow-dragging: false # optional (false by default)
+allow-under-inventory-interact: true # optional (false by default)
+creation-data:
+  - "x 14 1 4 13 3 2 10 x"
+  - "14 1 foo 4 bar 3 baz 2 10"
+  - "x 14 1 4 13 3 2 10 x"
+```
+
+And you can create a `Menu` from `MenuData`.
+
+```java
+MenuData menuData = MenuData.of(configurationSection);
+StandardMenu<Player> menu = menuLibrary.create(applicator, menuData);
 ```
 
 MML includes an `ItemStackBuilder` which can be used as such:

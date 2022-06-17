@@ -4,11 +4,11 @@ import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.plugin.java.JavaPlugin;
 import rip.hippo.example.mml.spigot.command.ExampleCommand;
-import rip.hippo.example.mml.spigot.config.MenuConfig;
 import rip.hippo.mml.spigot.MenuLibrary;
 import rip.hippo.mml.spigot.component.ClickInteract;
 import rip.hippo.mml.spigot.component.ItemDisplay;
 import rip.hippo.mml.spigot.util.ItemStackBuilder;
+import rip.hippo.mml.spigot.util.MenuData;
 
 /**
  * @author Hippo
@@ -52,9 +52,7 @@ public final class MMLExamplePlugin extends JavaPlugin {
           return false;
         }));
 
-    MenuConfig menuConfig = new MenuConfig(getConfig());
-
     Bukkit.getPluginCommand("mmlexample")
-        .setExecutor(new ExampleCommand(menuLibrary, menuConfig));
+        .setExecutor(new ExampleCommand(menuLibrary, MenuData.of(getConfig())));
   }
 }

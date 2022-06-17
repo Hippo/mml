@@ -16,6 +16,7 @@ import rip.hippo.mml.spigot.component.DecorComponentBinder;
 import rip.hippo.mml.spigot.component.SpigotMenuBus;
 import rip.hippo.mml.spigot.component.SpigotPayload;
 import rip.hippo.mml.spigot.listener.PlayerListener;
+import rip.hippo.mml.spigot.util.MenuData;
 
 import java.util.HashMap;
 import java.util.List;
@@ -65,6 +66,13 @@ public final class MenuLibrary {
     standardComponentBinder.bind(binder, componentAttributes);
   }
 
+  public StandardMenu<Player> create(StandardMenuApplicator<Player> menuApplicator, MenuData menuData) {
+    return create(menuApplicator,
+        menuData.getTitle(),
+        menuData.getCreationData(),
+        menuData.isAllowDragging(),
+        menuData.isAllowUnderInventoryInteract());
+  }
   public StandardMenu<Player> create(StandardMenuApplicator<Player> menuApplicator,
                              String title,
                              List<String> creationData,
