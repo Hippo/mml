@@ -10,10 +10,10 @@ repositories {
 }
 
 dependencies {
-    implementation("rip.hippo.mml:core:1.0.7")
+    implementation("rip.hippo.mml:core:1.0.8")
     
     // add if spigot plugin
-    implementation("rip.hippo.mml:spigot:1.0.7")
+    implementation("rip.hippo.mml:spigot:1.0.8")
 }
 ```
 
@@ -118,6 +118,7 @@ StandardMenuApplicator<Player> applicator = menuLibrary.getApplicator(Material.S
 title: "&cMy Menu"
 allow-dragging: false # optional (false by default)
 allow-under-inventory-interact: true # optional (false by default)
+decor: STAINED_GLASS_PANE # optional
 creation-data:
   - "x 14 1 4 13 3 2 10 x"
   - "14 1 foo 4 bar 3 baz 2 10"
@@ -129,6 +130,12 @@ And you can create a `Menu` from `MenuData`.
 ```java
 MenuData menuData = MenuData.of(configurationSection);
 StandardMenu<Player> menu = menuLibrary.create(applicator, menuData);
+```
+
+It also allows for automatic creation of `MenuApplicator` and `Menu` and you can process with them as such.
+
+```java
+menuData.accept(menuLibrary, (applicator, menu) -> applicator.open(player, menu));
 ```
 
 MML includes an `ItemStackBuilder` which can be used as such:
