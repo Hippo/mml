@@ -42,6 +42,14 @@ public final class MenuData {
     this(title, creationData, false, false, null);
   }
 
+  public MenuData(MenuData menuData) {
+    this(menuData.title,
+        menuData.creationData,
+        menuData.allowDragging,
+        menuData.allowUnderInventoryInteract,
+        menuData.decor);
+  }
+
   public void accept(MenuLibrary menuLibrary,
                      BiConsumer<StandardMenuApplicator<Player>, StandardMenu<Player>> consumer) {
     StandardMenuApplicator<Player> applicator = getDecor().isPresent() ?
@@ -76,6 +84,10 @@ public final class MenuData {
 
   public void setMetaData(Object metaData) {
     this.metaData = metaData;
+  }
+
+  public MenuData copy() {
+    return new MenuData(this);
   }
 
   public static MenuData of(ConfigurationSection configurationSection) {
