@@ -2,7 +2,6 @@ package rip.hippo.mml.spigot.component;
 
 import org.bukkit.entity.HumanEntity;
 import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.event.inventory.InventoryInteractEvent;
 import rip.hippo.mml.component.ComponentPayload;
 
 /**

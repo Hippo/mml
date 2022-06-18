@@ -48,7 +48,7 @@ public final class SpigotMenuApplicator implements StandardMenuApplicator<Player
       String binder = binds[i];
       int index = i;
       componentBinder.getComponent(binder, ItemDisplay.class)
-          .ifPresent(display -> inventory.setItem(index, display.get()));
+          .ifPresent(display -> inventory.setItem(index, display.get(entity)));
     }
 
     playerMenuMap.put(entity, (StandardMenu<Player>) menu);

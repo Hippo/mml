@@ -1,13 +1,10 @@
 package rip.hippo.mml.spigot.component;
 
-import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import rip.hippo.mml.Menu;
 import rip.hippo.mml.component.ComponentBinder;
 import rip.hippo.mml.impl.StandardMenuBus;
-
-import java.util.Optional;
 
 /**
  * @author Hippo

@@ -4,8 +4,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
-import rip.hippo.mml.Menu;
-import rip.hippo.mml.MenuFactory;
 import rip.hippo.mml.component.ComponentAttribute;
 import rip.hippo.mml.component.impl.binder.StandardComponentBinder;
 import rip.hippo.mml.impl.StandardMenu;

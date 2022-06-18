@@ -3,11 +3,9 @@ package rip.hippo.mml.testing;
 import rip.hippo.mml.Menu;
 import rip.hippo.mml.component.ComponentBinder;
 import rip.hippo.mml.impl.StandardMenuBus;
-import rip.hippo.mml.testing.component.MockMenuBus;
 import rip.hippo.mml.testing.component.MockPayload;
 
 import java.util.Objects;
-import java.util.Optional;
 
 /**
  * @author Hippo

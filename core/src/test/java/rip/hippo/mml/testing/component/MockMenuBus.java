@@ -1,7 +1,6 @@
 package rip.hippo.mml.testing.component;
 
 import rip.hippo.mml.Menu;
-import rip.hippo.mml.component.ComponentAttribute;
 import rip.hippo.mml.component.ComponentBinder;
 import rip.hippo.mml.impl.StandardMenuBus;
 import rip.hippo.mml.testing.MockGame;
@@ -26,7 +25,7 @@ public final class MockMenuBus implements StandardMenuBus<MockPayload, MockGame>
       Optional<MockDisplay> optionalDisplay = componentBinder.getComponent(binder, MockDisplay.class);
       if (optionalDisplay.isPresent()) {
         MockDisplay mockDisplay = optionalDisplay.get();
-        System.out.println(payload.getEntity() + " found a message at slot " + payload.getSlot() + ": " + mockDisplay.get());
+        System.out.println(payload.getEntity() + " found a message at slot " + payload.getSlot() + ": " + mockDisplay.get(payload.getEntity()));
       } else {
         System.out.println(payload.getEntity() + " Did not find a message at slot " + payload.getSlot());
       }

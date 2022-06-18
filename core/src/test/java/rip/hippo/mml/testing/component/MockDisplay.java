@@ -5,7 +5,7 @@ import rip.hippo.mml.component.impl.DisplayComponent;
 /**
  * @author Hippo
  */
-public final class MockDisplay implements DisplayComponent<String> {
+public final class MockDisplay implements DisplayComponent<String, String> {
 
   private final String message;
 
@@ -14,7 +14,7 @@ public final class MockDisplay implements DisplayComponent<String> {
   }
 
   @Override
-  public String get() {
+  public String get(String entity) {
     return message;
   }
 }

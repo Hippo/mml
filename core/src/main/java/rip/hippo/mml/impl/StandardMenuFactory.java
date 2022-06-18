@@ -1,8 +1,6 @@
 package rip.hippo.mml.impl;
 
-import rip.hippo.mml.Menu;
 import rip.hippo.mml.MenuFactory;
-import rip.hippo.mml.component.ComponentBinder;
 
 import java.util.List;
 

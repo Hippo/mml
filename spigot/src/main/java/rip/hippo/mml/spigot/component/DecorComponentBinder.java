@@ -3,7 +3,6 @@ package rip.hippo.mml.spigot.component;
 import org.bukkit.Material;
 import rip.hippo.mml.component.ComponentAttribute;
 import rip.hippo.mml.component.ComponentBinder;
-import rip.hippo.mml.component.impl.binder.StandardComponentBinder;
 
 import java.util.Optional;
 
