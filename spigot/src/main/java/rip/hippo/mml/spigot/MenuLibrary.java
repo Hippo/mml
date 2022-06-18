@@ -69,16 +69,30 @@ public final class MenuLibrary {
         menuData.getTitle(),
         menuData.getCreationData(),
         menuData.isAllowDragging(),
-        menuData.isAllowUnderInventoryInteract());
+        menuData.isAllowUnderInventoryInteract(),
+        menuData.getMetaData());
   }
   public StandardMenu<Player> create(StandardMenuApplicator<Player> menuApplicator,
-                             String title,
-                             List<String> creationData,
-                             boolean allowDragging,
-                             boolean allowUnderInventoryInteract) {
-    return menuFactory.create(menuApplicator, title, creationData, allowDragging, allowUnderInventoryInteract);
+                                     String title,
+                                     List<String> creationData,
+                                     boolean allowDragging,
+                                     boolean allowUnderInventoryInteract,
+                                     Object metaData) {
+    return menuFactory.create(menuApplicator,
+        title,
+        creationData,
+        allowDragging,
+        allowUnderInventoryInteract,
+        metaData);
   }
 
+  public StandardMenu<Player> create(StandardMenuApplicator<Player> menuApplicator,
+                                     String title,
+                                     List<String> creationData,
+                                     boolean allowDragging,
+                                     boolean allowUnderInventoryInteract) {
+    return create(menuApplicator, title, creationData, allowDragging, allowUnderInventoryInteract, null);
+  }
   public StandardMenu<Player> create(StandardMenuApplicator<Player> menuApplicator,
                                      String title,
                                      List<String> creationData) {

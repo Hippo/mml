@@ -15,5 +15,6 @@ public interface MenuFactory<T, S> {
                     String title,
                     List<String> creationData,
                     boolean allowDragging,
-                    boolean allowUnderInventoryInteract);
+                    boolean allowUnderInventoryInteract,
+                    Object metaData);
 }

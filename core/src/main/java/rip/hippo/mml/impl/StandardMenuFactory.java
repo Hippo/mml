@@ -16,9 +16,15 @@ public final class StandardMenuFactory<T> implements MenuFactory<String, T> {
                              String title,
                              List<String> creationData,
                              boolean allowDragging,
-                             boolean allowUnderInventoryInteract) {
+                             boolean allowUnderInventoryInteract,
+                             Object metaData) {
     int rows = creationData.size();
-    StandardMenu<T> menu = new StandardMenu<>(applicator, title, rows, allowDragging, allowUnderInventoryInteract);
+    StandardMenu<T> menu = new StandardMenu<>(applicator,
+        title,
+        rows,
+        allowDragging,
+        allowUnderInventoryInteract,
+        metaData);
 
     int row = 0;
     for (String line : creationData) {

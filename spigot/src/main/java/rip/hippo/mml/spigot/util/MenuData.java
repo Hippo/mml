@@ -23,6 +23,8 @@ public final class MenuData {
   private final boolean allowUnderInventoryInteract;
   private final Material decor;
 
+  private Object metaData;
+
   public MenuData(String title,
                   List<String> creationData,
                   boolean allowDragging,
@@ -66,6 +68,14 @@ public final class MenuData {
 
   public Optional<Material> getDecor() {
     return Optional.ofNullable(decor);
+  }
+
+  public Object getMetaData() {
+    return metaData;
+  }
+
+  public void setMetaData(Object metaData) {
+    this.metaData = metaData;
   }
 
   public static MenuData of(ConfigurationSection configurationSection) {

@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "rip.hippo.mml"
-version = "1.0.9"
+version = "1.1.0"
 
 repositories {
     mavenCentral()

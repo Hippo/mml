@@ -16,18 +16,21 @@ public final class StandardMenu<T> implements Menu<String, T> {
   private final int rows;
   private final boolean allowDragging, allowUnderInventoryInteract;
   private final String[] binds;
+  private final Object metaData;
 
   public StandardMenu(StandardMenuApplicator<T> menuApplicator,
                       String title,
                       int rows,
                       boolean allowDragging,
-                      boolean allowUnderInventoryInteract) {
+                      boolean allowUnderInventoryInteract,
+                      Object metaData) {
     this.menuApplicator = menuApplicator;
     this.title = title;
     this.rows = rows;
     this.allowDragging = allowDragging;
     this.allowUnderInventoryInteract = allowUnderInventoryInteract;
     this.binds = new String[rows * 9];
+    this.metaData = metaData;
   }
 
   @Override
@@ -71,5 +74,13 @@ public final class StandardMenu<T> implements Menu<String, T> {
   @Override
   public StandardMenuApplicator<T> getMenuApplicator() {
     return menuApplicator;
+  }
+
+  @Override
+  public <U> Optional<U> getMetaData(Class<U> parent) {
+    if (parent.isInstance(metaData)) {
+      return Optional.of(parent.cast(metaData));
+    }
+    return Optional.empty();
   }
 }

@@ -42,7 +42,8 @@ public final class MockTest {
         menuName,
         menuData,
         false,
-        false);
+        false,
+        null);
 
     MockGame mockGame = new MockGame("My Entity", new MockMenuBus(), componentBinder);
 

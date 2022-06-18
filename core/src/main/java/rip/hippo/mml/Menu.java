@@ -25,4 +25,6 @@ public interface Menu<T, S> {
 
   StandardMenuApplicator<S> getMenuApplicator();
 
+  <U> Optional<U> getMetaData(Class<U> parent);
+
 }

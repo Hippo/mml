@@ -58,7 +58,11 @@ public final class PlayerListener implements Listener {
     Player player = (Player) whoClicked;
     menuLibrary.getMenu(player)
         .ifPresent(menu -> menuLibrary.getMenuBus()
-            .message(menu.getMenuApplicator().getComponentBinder(),menu, new SpigotPayload(inventoryClickEvent)));
+            .message(
+                menu.getMenuApplicator().getComponentBinder(),
+                menu,
+                new SpigotPayload(inventoryClickEvent, menu)
+            ));
   }
 
 }
