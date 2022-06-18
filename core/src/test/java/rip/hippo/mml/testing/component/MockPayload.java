@@ -1,18 +1,19 @@
 package rip.hippo.mml.testing.component;
 
 import rip.hippo.mml.component.ComponentPayload;
+import rip.hippo.mml.testing.MockGame;
 
 /**
  * @author Hippo
  */
-public final class MockPayload implements ComponentPayload<String> {
+public final class MockPayload implements ComponentPayload<MockGame> {
 
-  private final String entity;
+  private final MockGame entity;
   private final int slot;
   private final boolean view;
   private final String metaData;
 
-  public MockPayload(String entity, int slot, boolean view, String metaData) {
+  public MockPayload(MockGame entity, int slot, boolean view, String metaData) {
     this.entity = entity;
     this.slot = slot;
     this.view = view;
@@ -22,7 +23,7 @@ public final class MockPayload implements ComponentPayload<String> {
 
 
   @Override
-  public String getEntity() {
+  public MockGame getEntity() {
     return entity;
   }
 

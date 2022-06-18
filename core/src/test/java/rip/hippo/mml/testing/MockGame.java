@@ -35,14 +35,14 @@ public final class MockGame {
   public void interact(int slot, String metaData) {
     Objects.requireNonNull(currentMenu);
 
-    MockPayload mockPayload = new MockPayload(entity, slot, false, metaData);
+    MockPayload mockPayload = new MockPayload(this, slot, false, metaData);
     menuBus.message(componentBinder, currentMenu, mockPayload);
   }
 
   public void view(int slot) {
     Objects.requireNonNull(currentMenu);
 
-    MockPayload mockPayload = new MockPayload(entity, slot, true, null);
+    MockPayload mockPayload = new MockPayload(this, slot, true, null);
     menuBus.message(componentBinder, currentMenu, mockPayload);
   }
 
