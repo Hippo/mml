@@ -81,6 +81,26 @@ public final class ItemStackBuilder {
     return itemStack;
   }
 
+  public String getName() {
+    return name;
+  }
+
+  public Material getMaterial() {
+    return material;
+  }
+
+  public int getAmount() {
+    return amount;
+  }
+
+  public short getDamage() {
+    return damage;
+  }
+
+  public List<String> getLore() {
+    return lore;
+  }
+
   public static ItemStackBuilder of(ConfigurationSection configurationSection, boolean translateColorCodes) {
     String name = configurationSection.getString("name");
     Material material = Material.valueOf(Objects.requireNonNull(configurationSection.getString("material")));
