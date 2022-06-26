@@ -52,8 +52,8 @@ public final class SpigotMenuApplicator implements StandardMenuApplicator<Player
           .ifPresent(display -> inventory.setItem(index, display.get(entity, menu)));
     }
 
-    playerMenuMap.put(entity, (StandardMenu<Player>) menu);
     entity.openInventory(inventory);
+    playerMenuMap.put(entity, (StandardMenu<Player>) menu);
   }
 
   @Override
