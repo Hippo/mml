@@ -8,6 +8,7 @@ import rip.hippo.mml.Menu;
 import rip.hippo.mml.component.ComponentBinder;
 import rip.hippo.mml.impl.StandardMenu;
 import rip.hippo.mml.impl.StandardMenuApplicator;
+import rip.hippo.mml.spigot.component.DisplayPayload;
 import rip.hippo.mml.spigot.component.ItemDisplay;
 
 import java.util.Map;
@@ -49,7 +50,7 @@ public final class SpigotMenuApplicator implements StandardMenuApplicator<Player
       String binder = binds[i];
       int index = i;
       componentBinder.getComponent(binder, ItemDisplay.class)
-          .ifPresent(display -> inventory.setItem(index, display.get(entity, menu)));
+          .ifPresent(display -> inventory.setItem(index, display.get(entity, new DisplayPayload((StandardMenu<Player>) menu, index))));
     }
 
     entity.openInventory(inventory);

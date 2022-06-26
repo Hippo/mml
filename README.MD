@@ -10,10 +10,10 @@ repositories {
 }
 
 dependencies {
-    implementation("rip.hippo.mml:core:1.1.6")
+    implementation("rip.hippo.mml:core:1.2.0")
     
     // add if spigot plugin
-    implementation("rip.hippo.mml:spigot:1.1.6")
+    implementation("rip.hippo.mml:spigot:1.2.0")
 }
 ```
 
