@@ -29,7 +29,8 @@ public final class SpigotMenuApplicator implements StandardMenuApplicator<Player
     this.translateColor = translateColor;
   }
 
-  public SpigotMenuApplicator(Map<Player, StandardMenu<Player>> playerMenuMap, ComponentBinder<String> componentBinder) {
+  public SpigotMenuApplicator(Map<Player, StandardMenu<Player>> playerMenuMap,
+                              ComponentBinder<String> componentBinder) {
     this(playerMenuMap, componentBinder, true);
   }
 

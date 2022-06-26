@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/core" />
             <option value="$PROJECT_DIR$/spigot" />
             <option value="$PROJECT_DIR$/spigot-example" />
+            <option value="$PROJECT_DIR$/spigot-modern" />
           </set>
         </option>
       </GradleProjectSettings>

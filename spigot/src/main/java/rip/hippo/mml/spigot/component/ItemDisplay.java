@@ -6,7 +6,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import rip.hippo.mml.Menu;
 import rip.hippo.mml.component.impl.DisplayComponent;
-import rip.hippo.mml.impl.StandardMenu;
 import rip.hippo.mml.spigot.util.ItemStackBuilder;
 
 import java.util.function.BiFunction;

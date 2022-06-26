@@ -10,10 +10,10 @@ repositories {
 }
 
 dependencies {
-    implementation("rip.hippo.mml:core:1.1.2")
+    implementation("rip.hippo.mml:core:1.1.3")
     
     // add if spigot plugin
-    implementation("rip.hippo.mml:spigot:1.1.2")
+    implementation("rip.hippo.mml:spigot:1.1.3")
 }
 ```
 
@@ -96,7 +96,7 @@ applicator.open(player, menu);
 
 ### More Information on Spigot Integration
 
-MML has a `DecorComponentBinder`, which tries to bind decor items to our menus contents via the items damage value.
+MML has a `DecorComponentBinder`, which tries to bind decor items to our menus contents.
 
 Let's say we wanted to have a multitude of stained-glass panes instead of no items in our example gui.
 We can define our list as this now.
@@ -119,10 +119,11 @@ title: "&cMy Menu"
 allow-dragging: false # optional (false by default)
 allow-under-inventory-interact: true # optional (false by default)
 decor: STAINED_GLASS_PANE # optional
+# you can use legacy damage values here, however it is strongly recommended to use names instead for cross-version reasons.
 creation-data:
-  - "x 14 1 4 13 3 2 10 x"
-  - "14 1 foo 4 bar 3 baz 2 10"
-  - "x 14 1 4 13 3 2 10 x"
+  - "x red orange yellow green light_blue magenta purple x"
+  - "red orange foo yellow bar light_blue baz magenta purple"
+  - "x red orange yellow green light_blue magenta purple x"
 ```
 
 And you can create a `Menu` from `MenuData`.
@@ -167,5 +168,10 @@ Load at like this.
 ```java
 ItemStackBuilder itemStackBuilder = ItemStackBuilder.of(configurationSection);
 ```
+
+## Side notes
+If you are using a legacy Minecraft version, it may still be a good idea to add `api-version: 1.19` to your `plugin.yml` 
+, In modern Minecraft versions Spigot tries to adapt the Material names, 
+which interferes with our Material fetching process.
 
 Check out `spigot-example` for a whole integration.

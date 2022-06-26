@@ -1,6 +1,5 @@
 package rip.hippo.example.mml.spigot.command;
 
-import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -32,7 +31,7 @@ public final class ExampleCommand implements CommandExecutor {
     boolean pane = args.length > 0 && args[0].equalsIgnoreCase("-p");
 
 
-    StandardMenuApplicator<Player> applicator = menuLibrary.getApplicator(pane ? Material.STAINED_GLASS_PANE : Material.STAINED_GLASS);
+    StandardMenuApplicator<Player> applicator = menuLibrary.getApplicator(pane ? "STAINED_GLASS_PANE" : "STAINED_GLASS");
 
     StandardMenu<Player> menu = menuLibrary.create(applicator, menuData);
 

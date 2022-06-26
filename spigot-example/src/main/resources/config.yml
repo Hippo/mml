@@ -2,6 +2,6 @@ title: "&cMy Menu"
 allow-dragging: false
 allow-under-inventory-interact: true
 creation-data:
-  - "x 14 1 4 13 3 2 10 x"
-  - "14 1 foo 4 bar 3 baz 2 10"
-  - "x 14 1 4 13 3 2 10 x"
+  - "x red orange yellow green light_blue magenta purple x"
+  - "red orange foo yellow bar light_blue baz magenta purple"
+  - "x red orange yellow green light_blue magenta purple x"

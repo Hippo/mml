@@ -60,6 +60,10 @@ public final class MenuLibrary {
     return new SpigotMenuApplicator(playerMenuMap, new DecorComponentBinder(material, standardComponentBinder));
   }
 
+  public StandardMenuApplicator<Player> getApplicator(String material) {
+    return new SpigotMenuApplicator(playerMenuMap, new DecorComponentBinder(material, standardComponentBinder));
+  }
+
   public void bind(String binder, ComponentAttribute... componentAttributes) {
     standardComponentBinder.bind(binder, componentAttributes);
   }
