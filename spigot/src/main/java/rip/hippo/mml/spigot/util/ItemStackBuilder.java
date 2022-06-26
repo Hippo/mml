@@ -69,6 +69,16 @@ public final class ItemStackBuilder {
     return this;
   }
 
+  public ItemStackBuilder copy() {
+    ItemStackBuilder itemStackBuilder = new ItemStackBuilder(translateColorCodes);
+    itemStackBuilder.name = name;
+    itemStackBuilder.material = material;
+    itemStackBuilder.amount = amount;
+    itemStackBuilder.damage = damage;
+    itemStackBuilder.lore.addAll(lore);
+    return itemStackBuilder;
+  }
+
   public ItemStack build() {
     ItemStack itemStack = new ItemStack(material, amount);
     ItemMeta itemMeta = itemStack.getItemMeta();
