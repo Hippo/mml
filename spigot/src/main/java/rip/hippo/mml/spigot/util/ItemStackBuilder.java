@@ -53,6 +53,12 @@ public final class ItemStackBuilder {
     return this;
   }
 
+  public ItemStackBuilder setLores(List<String> lines) {
+    lore.clear();
+    addLores(lines);
+    return this;
+  }
+
   public ItemStackBuilder amount(int amount) {
     this.amount = amount;
     return this;
