@@ -10,6 +10,8 @@ import rip.hippo.mml.spigot.component.ItemDisplay;
 import rip.hippo.mml.spigot.util.ItemStackBuilder;
 import rip.hippo.mml.spigot.util.MenuData;
 
+import java.util.logging.Level;
+
 /**
  * @author Hippo
  */
@@ -54,5 +56,8 @@ public final class MMLExamplePlugin extends JavaPlugin {
 
     Bukkit.getPluginCommand("mmlexample")
         .setExecutor(new ExampleCommand(menuLibrary, MenuData.of(getConfig())));
+
+    Bukkit.getLogger().log(Level.INFO, Bukkit.getVersion());
+    Bukkit.getLogger().log(Level.INFO, Bukkit.getBukkitVersion());
   }
 }

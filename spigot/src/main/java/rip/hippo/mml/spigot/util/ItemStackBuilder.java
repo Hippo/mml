@@ -5,6 +5,7 @@ import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import rip.hippo.translate.ChatTranslate;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -32,7 +33,7 @@ public final class ItemStackBuilder {
   }
 
   public ItemStackBuilder name(String name) {
-    this.name = translateColorCodes ? ChatColor.translateAlternateColorCodes('&', name) : name;
+    this.name = translateColorCodes ? ChatTranslate.translate(name) : name;
     return this;
   }
 
@@ -42,7 +43,7 @@ public final class ItemStackBuilder {
   }
 
   public ItemStackBuilder addLoreLine(String line) {
-    lore.add(translateColorCodes ? ChatColor.translateAlternateColorCodes('&', line) : line);
+    lore.add(translateColorCodes ? ChatTranslate.translate(line) : line);
     return this;
   }
 

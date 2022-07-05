@@ -5,17 +5,21 @@ plugins {
 }
 
 group = "rip.hippo.mml"
-version = "1.2.1"
+version = "1.3.0"
 
 repositories {
     mavenCentral()
     maven("https://hub.spigotmc.org/nexus/content/repositories/snapshots/")
     maven("https://oss.sonatype.org/content/groups/public/")
+    maven("https://jitpack.io")
 }
 
 dependencies {
     implementation("org.spigotmc:spigot-api:1.8-R0.1-SNAPSHOT")
     implementation(project(":core"))
+
+    implementation("rip.hippo:BukkitVersion:1.0.0")
+    implementation("rip.hippo:ChatTranslate:1.2.0")
 }
 
 publishing {

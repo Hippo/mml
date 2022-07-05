@@ -7,18 +7,22 @@ plugins {
 }
 
 group = "rip.hippo.mml"
-version = "1.2.1"
+version = "1.3.0"
 
 repositories {
     mavenCentral()
     maven("https://hub.spigotmc.org/nexus/content/repositories/snapshots/")
     maven("https://oss.sonatype.org/content/groups/public/")
+    maven("https://jitpack.io")
 }
 
 dependencies {
     implementation("org.spigotmc:spigot-api:1.8-R0.1-SNAPSHOT")
     implementation(project(":core"))
     implementation(project(":spigot"))
+
+    implementation("rip.hippo:BukkitVersion:1.0.0")
+    implementation("rip.hippo:ChatTranslate:1.2.0")
 }
 
 tasks.getByName<ShadowJar>("shadowJar") {
@@ -29,6 +33,10 @@ tasks.getByName<ShadowJar>("shadowJar") {
     }
     relocate("rip.hippo.mml",
         "rip.hippo.example.mml.spigot.libs.rip.hippo.mml")
+    relocate("rip.hippo.translate",
+    "rip.hippo.example.mml.spigot.libs.rip.hippo.translate")
+    relocate("rip.hippo.version",
+    "rip.hippo.example.mml.spigot.libs.rip.hippo.version")
 }
 
 publishing {

@@ -10,6 +10,7 @@ import rip.hippo.mml.impl.StandardMenu;
 import rip.hippo.mml.impl.StandardMenuApplicator;
 import rip.hippo.mml.spigot.component.DisplayPayload;
 import rip.hippo.mml.spigot.component.ItemDisplay;
+import rip.hippo.translate.ChatTranslate;
 
 import java.util.Map;
 
@@ -43,7 +44,7 @@ public final class SpigotMenuApplicator implements StandardMenuApplicator<Player
     }
 
     Inventory inventory = Bukkit.createInventory(null, menu.getRows() * 9,
-        translateColor ? ChatColor.translateAlternateColorCodes('&', menu.getTitle()) : menu.getTitle());
+        translateColor ? ChatTranslate.translate(menu.getTitle()) : menu.getTitle());
 
     String[] binds = menu.getAll();
     for (int i = 0; i < binds.length; i++) {
