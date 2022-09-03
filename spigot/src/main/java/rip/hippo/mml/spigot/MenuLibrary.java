@@ -74,20 +74,20 @@ public final class MenuLibrary {
         menuData.getCreationData(),
         menuData.isAllowDragging(),
         menuData.isAllowUnderInventoryInteract(),
-        menuData.getMetaData());
+        menuData.getMetaDataMap());
   }
   public StandardMenu<Player> create(StandardMenuApplicator<Player> menuApplicator,
                                      String title,
                                      List<String> creationData,
                                      boolean allowDragging,
                                      boolean allowUnderInventoryInteract,
-                                     Object metaData) {
+                                     Map<String, Object> metaDataMap) {
     return menuFactory.create(menuApplicator,
         title,
         creationData,
         allowDragging,
         allowUnderInventoryInteract,
-        metaData);
+        metaDataMap);
   }
 
   public StandardMenu<Player> create(StandardMenuApplicator<Player> menuApplicator,
@@ -95,7 +95,7 @@ public final class MenuLibrary {
                                      List<String> creationData,
                                      boolean allowDragging,
                                      boolean allowUnderInventoryInteract) {
-    return create(menuApplicator, title, creationData, allowDragging, allowUnderInventoryInteract, null);
+    return create(menuApplicator, title, creationData, allowDragging, allowUnderInventoryInteract, new HashMap<>());
   }
   public StandardMenu<Player> create(StandardMenuApplicator<Player> menuApplicator,
                                      String title,

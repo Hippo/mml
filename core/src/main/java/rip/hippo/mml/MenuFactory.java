@@ -3,6 +3,7 @@ package rip.hippo.mml;
 import rip.hippo.mml.impl.StandardMenuApplicator;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @param <T> Binding object
@@ -16,5 +17,5 @@ public interface MenuFactory<T, S> {
                     List<String> creationData,
                     boolean allowDragging,
                     boolean allowUnderInventoryInteract,
-                    Object metaData);
+                    Map<String, Object> metaDataMap);
 }

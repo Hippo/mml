@@ -3,6 +3,7 @@ package rip.hippo.mml.impl;
 import rip.hippo.mml.MenuFactory;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @param <T> Entity type
@@ -13,18 +14,18 @@ public final class StandardMenuFactory<T> implements MenuFactory<String, T> {
 
   @Override
   public StandardMenu<T> create(StandardMenuApplicator<T> applicator,
-                             String title,
-                             List<String> creationData,
-                             boolean allowDragging,
-                             boolean allowUnderInventoryInteract,
-                             Object metaData) {
+                                String title,
+                                List<String> creationData,
+                                boolean allowDragging,
+                                boolean allowUnderInventoryInteract,
+                                Map<String, Object> metaDataMap) {
     int rows = creationData.size();
     StandardMenu<T> menu = new StandardMenu<>(applicator,
         title,
         rows,
         allowDragging,
         allowUnderInventoryInteract,
-        metaData);
+        metaDataMap);
 
     int row = 0;
     for (String line : creationData) {

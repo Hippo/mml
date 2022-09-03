@@ -2,6 +2,8 @@ package rip.hippo.mml.impl;
 
 import rip.hippo.mml.Menu;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 /**
@@ -16,21 +18,21 @@ public final class StandardMenu<T> implements Menu<String, T> {
   private final int rows;
   private final boolean allowDragging, allowUnderInventoryInteract;
   private final String[] binds;
-  private final Object metaData;
+  private final Map<String, Object> metaDataMap;
 
   public StandardMenu(StandardMenuApplicator<T> menuApplicator,
                       String title,
                       int rows,
                       boolean allowDragging,
                       boolean allowUnderInventoryInteract,
-                      Object metaData) {
+                      Map<String, Object> metaDataMap) {
     this.menuApplicator = menuApplicator;
     this.title = title;
     this.rows = rows;
     this.allowDragging = allowDragging;
     this.allowUnderInventoryInteract = allowUnderInventoryInteract;
     this.binds = new String[rows * 9];
-    this.metaData = metaData;
+    this.metaDataMap = metaDataMap;
   }
 
   @Override
@@ -77,7 +79,8 @@ public final class StandardMenu<T> implements Menu<String, T> {
   }
 
   @Override
-  public <U> Optional<U> getMetaData(Class<U> parent) {
+  public <U> Optional<U> getMetaData(String key, Class<U> parent) {
+    Object metaData = metaDataMap.get(key);
     if (parent.isInstance(metaData)) {
       return Optional.of(parent.cast(metaData));
     }

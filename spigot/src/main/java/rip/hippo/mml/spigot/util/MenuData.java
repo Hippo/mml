@@ -7,9 +7,7 @@ import rip.hippo.mml.impl.StandardMenu;
 import rip.hippo.mml.impl.StandardMenuApplicator;
 import rip.hippo.mml.spigot.MenuLibrary;
 
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 import java.util.function.BiConsumer;
 
 /**
@@ -23,7 +21,7 @@ public final class MenuData {
   private final boolean allowUnderInventoryInteract;
   private final String decor;
 
-  private transient Object metaData;
+  private transient final Map<String, Object> metaDataMap;
 
   public MenuData(String title,
                   List<String> creationData,
@@ -35,6 +33,7 @@ public final class MenuData {
     this.allowDragging = allowDragging;
     this.allowUnderInventoryInteract = allowUnderInventoryInteract;
     this.decor = decor;
+    this.metaDataMap = new HashMap<>();
   }
 
   public MenuData(String title,
@@ -44,7 +43,7 @@ public final class MenuData {
 
   public MenuData(MenuData menuData) {
     this(menuData.title,
-        menuData.creationData,
+        new ArrayList<>(menuData.creationData),
         menuData.allowDragging,
         menuData.allowUnderInventoryInteract,
         menuData.decor);
@@ -78,12 +77,12 @@ public final class MenuData {
     return Optional.ofNullable(decor);
   }
 
-  public Object getMetaData() {
-    return metaData;
+  public Map<String, Object> getMetaDataMap() {
+    return metaDataMap;
   }
 
-  public void setMetaData(Object metaData) {
-    this.metaData = metaData;
+  public void addMetaData(String key, Object value) {
+    metaDataMap.put(key, value);
   }
 
   public MenuData copy() {
