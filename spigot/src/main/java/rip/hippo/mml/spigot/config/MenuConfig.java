@@ -1,6 +1,7 @@
 package rip.hippo.mml.spigot.config;
 
 import org.bukkit.configuration.ConfigurationSection;
+import rip.hippo.mml.spigot.MenuLibrary;
 import rip.hippo.mml.spigot.util.ItemStackBuilder;
 import rip.hippo.mml.spigot.util.MenuData;
 
@@ -12,11 +13,8 @@ import java.util.Objects;
  * @author Hippo
  */
 public abstract class MenuConfig {
-
   private final Map<String, ItemStackBuilder> itemMap;
   private final Map<String, MenuData> menuMap;
-
-
   public MenuConfig(ConfigurationSection configurationSection) {
     this.itemMap = new HashMap<>();
     this.menuMap = new HashMap<>();
@@ -30,6 +28,8 @@ public abstract class MenuConfig {
       menuMap.put(key, MenuData.of(Objects.requireNonNull(menus.getConfigurationSection(key))));
     }
   }
+
+  public abstract void bind(MenuLibrary menuLibrary);
 
   public ItemStackBuilder getItem(String key) {
     return itemMap.get(key);

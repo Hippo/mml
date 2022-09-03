@@ -14,19 +14,14 @@ public final class PageStack<T> {
   private final String component;
   private final List<T> mirrorList;
   private final Stack<IndexedMenu> pages;
-  private final boolean locked;
 
   public PageStack(String component, List<T> mirrorList) {
     this.component = component;
     this.mirrorList = mirrorList;
-    this.locked = mirrorList.isEmpty();
-    this.pages = locked ? null : new Stack<>();
+    this.pages = new Stack<>();
   }
 
   public void acceptNext(MenuData menuData) {
-    if (locked) {
-      return;
-    }
     pages.push(new IndexedMenu(component, menuData, getIndexedElements()));
   }
 
@@ -47,7 +42,7 @@ public final class PageStack<T> {
   }
 
   public int getIndex(int slot) {
-    if (locked) {
+    if (pages.isEmpty()) {
       return -1;
     }
     IndexedMenu current = pages.peek();
@@ -57,22 +52,22 @@ public final class PageStack<T> {
     return current.getIndex(slot);
   }
 
-  public IndexedMenu back() {
-    if (locked) {
-      return null;
+  public Optional<IndexedMenu> back() {
+    if (pages.isEmpty()) {
+      return Optional.empty();
     }
     if (hasBack()) {
       pages.pop();
     }
-    return pages.peek();
+    return Optional.of(pages.peek());
   }
 
   public boolean hasBack() {
-    return !locked && pages.size() > 1;
+    return pages.size() > 1;
   }
 
   public boolean hasNext() {
-    return !locked && getIndexedElements() < mirrorList.size();
+    return getIndexedElements() < mirrorList.size();
   }
 
 
