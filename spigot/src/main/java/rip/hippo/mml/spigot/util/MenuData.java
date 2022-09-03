@@ -15,11 +15,11 @@ import java.util.function.BiConsumer;
  */
 public final class MenuData {
 
-  private final String title;
+  private String title;
   private final List<String> creationData;
-  private final boolean allowDragging;
-  private final boolean allowUnderInventoryInteract;
-  private final String decor;
+  private boolean allowDragging;
+  private boolean allowUnderInventoryInteract;
+  private String decor;
 
   private transient final Map<String, Object> metaDataMap;
 
@@ -87,6 +87,22 @@ public final class MenuData {
 
   public MenuData copy() {
     return new MenuData(this);
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public void setAllowDragging(boolean allowDragging) {
+    this.allowDragging = allowDragging;
+  }
+
+  public void setAllowUnderInventoryInteract(boolean allowUnderInventoryInteract) {
+    this.allowUnderInventoryInteract = allowUnderInventoryInteract;
+  }
+
+  public void setDecor(String decor) {
+    this.decor = decor;
   }
 
   public static MenuData of(ConfigurationSection configurationSection) {
