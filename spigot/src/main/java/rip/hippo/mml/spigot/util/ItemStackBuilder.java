@@ -17,7 +17,6 @@ import java.util.Objects;
 public final class ItemStackBuilder {
 
   private final boolean translateColorCodes;
-
   private String name;
   private Material material;
   private int amount = 1;
