@@ -22,8 +22,8 @@ public final class MenuYAMLPropertyBind extends YAMLPropertyBind<MenuRegistry> {
   public MenuRegistry read(ConfigurationSection section) {
     MenuRegistry menuRegistry = new StandardMenuRegistry();
 
-    ConfigurationSection menus = Objects.requireNonNull(section.getConfigurationSection("menus"));
-    ConfigurationSection items = Objects.requireNonNull(section.getConfigurationSection("items"));
+    ConfigurationSection menus = Objects.requireNonNull(section.getConfigurationSection(getPath() + ".menus"));
+    ConfigurationSection items = Objects.requireNonNull(section.getConfigurationSection(getPath() + ".items"));
     for (String key : items.getKeys(false)) {
       menuRegistry.putItem(key, ItemStackBuilder.of(Objects.requireNonNull(items.getConfigurationSection(key))));
     }
@@ -36,6 +36,7 @@ public final class MenuYAMLPropertyBind extends YAMLPropertyBind<MenuRegistry> {
 
   @Override
   public void write(ConfigurationSection section, MenuRegistry value) {
+    section = section.createSection(getPath());
     ConfigurationSection menus = section.createSection("menus");
     ConfigurationSection items = section.createSection("items");
 
