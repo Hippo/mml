@@ -117,11 +117,19 @@ public final class ItemStackBuilder {
     return lore;
   }
 
+  public void write(ConfigurationSection configurationSection) {
+    configurationSection.set("name", name);
+    configurationSection.set("material", material.name());
+    configurationSection.set("amount", amount);
+    configurationSection.set("damage", damage);
+    configurationSection.set("lore", lore);
+  }
+
   public static ItemStackBuilder of(ConfigurationSection configurationSection, boolean translateColorCodes) {
     String name = configurationSection.getString("name");
     Material material = Material.valueOf(Objects.requireNonNull(configurationSection.getString("material")));
     List<String> lore = configurationSection.getStringList("lore");
-    int damage = configurationSection.getInt("damage", -1);
+    int damage = configurationSection.getInt("damage", 0);
     int amount = configurationSection.getInt("amount", 1);
 
     ItemStackBuilder itemStackBuilder = new ItemStackBuilder(translateColorCodes)
@@ -133,9 +141,7 @@ public final class ItemStackBuilder {
       itemStackBuilder.name(name);
     }
 
-    if (damage != -1) {
-      itemStackBuilder.damage(damage);
-    }
+    itemStackBuilder.damage(damage);
 
     return itemStackBuilder;
   }

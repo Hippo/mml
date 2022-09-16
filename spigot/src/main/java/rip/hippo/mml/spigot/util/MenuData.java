@@ -105,6 +105,14 @@ public final class MenuData {
     this.decor = decor;
   }
 
+  public void write(ConfigurationSection configurationSection) {
+    configurationSection.set("title", title);
+    configurationSection.set("creation-data", creationData);
+    configurationSection.set("allow-dragging", allowDragging);
+    configurationSection.set("allow-under-inventory-interact", allowUnderInventoryInteract);
+    configurationSection.set("decor", decor);
+  }
+
   public static MenuData of(ConfigurationSection configurationSection) {
     String title = Objects.requireNonNull(configurationSection.getString("title"));
     List<String> creationData = Objects.requireNonNull(configurationSection.getStringList("creation-data"));

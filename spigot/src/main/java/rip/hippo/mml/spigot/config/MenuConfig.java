@@ -12,6 +12,7 @@ import java.util.Objects;
 /**
  * @author Hippo
  */
+@Deprecated
 public abstract class MenuConfig {
   private final Map<String, ItemStackBuilder> itemMap;
   private final Map<String, MenuData> menuMap;

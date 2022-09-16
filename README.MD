@@ -10,13 +10,10 @@ repositories {
 }
 
 dependencies {
-    implementation("rip.hippo.mml:core:1.8.2")
+    implementation("rip.hippo.mml:core:1.8.3")
     
-    // add if spigot plugin
-    implementation("rip.hippo.mml:spigot:1.8.2")
-    // spigot implementation dependencies
-    implementation("rip.hippo:BukkitVersion:1.0.0")
-    implementation("rip.hippo:ChatTranslate:1.2.0")
+    // Spigot module
+    implementation("rip.hippo.mml:spigot:1.8.3")
 }
 ```
 

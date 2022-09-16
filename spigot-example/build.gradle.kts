@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "rip.hippo.mml"
-version = "1.8.2"
+version = "1.8.3"
 
 repositories {
     mavenCentral()
@@ -37,6 +37,8 @@ tasks.getByName<ShadowJar>("shadowJar") {
     "rip.hippo.example.mml.spigot.libs.rip.hippo.translate")
     relocate("rip.hippo.version",
     "rip.hippo.example.mml.spigot.libs.rip.hippo.version")
+    relocate("rip.hippo.possi",
+        "rip.hippo.example.mml.spigot.libs.rip.hippo.possi")
 }
 
 publishing {

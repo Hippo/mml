@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "rip.hippo.mml"
-version = "1.8.2"
+version = "1.8.3"
 
 repositories {
     mavenCentral()
@@ -20,6 +20,8 @@ dependencies {
 
     implementation("rip.hippo:BukkitVersion:1.0.1")
     implementation("rip.hippo:ChatTranslate:1.2.1")
+    implementation("rip.hippo.possi:core:4.2.0")
+    implementation("rip.hippo.possi:spigot:4.2.0")
 }
 
 publishing {
