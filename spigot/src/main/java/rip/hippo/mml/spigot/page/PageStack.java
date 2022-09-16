@@ -70,8 +70,6 @@ public final class PageStack<T> {
     return getIndexedElements() < mirrorList.size();
   }
 
-
-
   private int getIndexedElements() {
     if (pages.isEmpty()) {
       return 0;
@@ -82,5 +80,10 @@ public final class PageStack<T> {
       offset += page.getSize();
     }
     return offset;
+  }
+
+  @SuppressWarnings("unchecked")
+  public static <T> Class<PageStack<T>> getClass(Class<T> parent) {
+    return (Class<PageStack<T>>) (Class<?>) PageStack.class;
   }
 }
