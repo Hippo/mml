@@ -1,5 +1,6 @@
 package rip.hippo.mml.spigot.bind;
 
+import rip.hippo.mml.spigot.bind.impl.StandardMenuRegistry;
 import rip.hippo.mml.spigot.util.ItemStackBuilder;
 import rip.hippo.mml.spigot.util.MenuData;
 
@@ -20,4 +21,12 @@ public interface MenuRegistry {
 
   Map<String, MenuData> getMenus();
   Map<String, ItemStackBuilder> getItems();
+
+  static MenuRegistry of(Map<String, MenuData> menuDataMap, Map<String, ItemStackBuilder> itemStackBuilderMap) {
+    return new StandardMenuRegistry(menuDataMap, itemStackBuilderMap);
+  }
+
+  static MenuRegistry of() {
+    return new StandardMenuRegistry();
+  }
 }

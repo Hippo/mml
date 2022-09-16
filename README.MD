@@ -10,10 +10,10 @@ repositories {
 }
 
 dependencies {
-    implementation("rip.hippo.mml:core:1.8.3")
+    implementation("rip.hippo.mml:core:1.8.4")
     
     // Spigot module
-    implementation("rip.hippo.mml:spigot:1.8.3")
+    implementation("rip.hippo.mml:spigot:1.8.4")
 }
 ```
 

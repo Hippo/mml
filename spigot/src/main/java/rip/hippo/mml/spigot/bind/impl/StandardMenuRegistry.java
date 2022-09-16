@@ -12,8 +12,17 @@ import java.util.Map;
  */
 public final class StandardMenuRegistry implements MenuRegistry {
 
-  private final Map<String, MenuData> menuDataMap = new HashMap<>();
-  private final Map<String, ItemStackBuilder> itemStackBuilderMap = new HashMap<>();
+  private final Map<String, MenuData> menuDataMap;
+  private final Map<String, ItemStackBuilder> itemStackBuilderMap;
+
+  public StandardMenuRegistry(Map<String, MenuData> menuDataMap, Map<String, ItemStackBuilder> itemStackBuilderMap) {
+    this.menuDataMap = menuDataMap;
+    this.itemStackBuilderMap = itemStackBuilderMap;
+  }
+
+  public StandardMenuRegistry() {
+    this(new HashMap<>(), new HashMap<>());
+  }
 
   @Override
   public void putMenu(String key, MenuData menuData) {
