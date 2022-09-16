@@ -22,8 +22,8 @@ public final class MenuYAMLPropertyBind extends YAMLPropertyBind<MenuRegistry> {
   public MenuRegistry read(ConfigurationSection section) {
     MenuRegistry menuRegistry = new StandardMenuRegistry();
 
-    ConfigurationSection menus = Objects.requireNonNull(section.getConfigurationSection(getPath() + ".menus"));
-    ConfigurationSection items = Objects.requireNonNull(section.getConfigurationSection(getPath() + ".items"));
+    ConfigurationSection menus = Objects.requireNonNull(section.getConfigurationSection("menus"));
+    ConfigurationSection items = Objects.requireNonNull(section.getConfigurationSection("items"));
     for (String key : items.getKeys(false)) {
       menuRegistry.putItem(key, ItemStackBuilder.of(Objects.requireNonNull(items.getConfigurationSection(key))));
     }

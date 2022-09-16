@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "rip.hippo.mml"
-version = "1.8.5"
+version = "1.8.6"
 
 repositories {
     mavenCentral()
